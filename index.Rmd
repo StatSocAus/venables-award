@@ -1,0 +1,86 @@
+---
+title: "Venables Award for New Developers of Open Source Software for Data Analytics"
+description: |
+  Venables Award for New Developers of Open Source Software for Data Analytics sponsored by the ARDC
+site: distill::distill_website
+output: 
+  distill::distill_article:
+    includes:
+      before_body: assets/banner.html
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+The goal of this award is to encourage new open source software development from the Australian community with a view to support efforts to develop and share data science and statistics methodology. 
+
+# <i class="fas fa-bullhorn"></i> Call for Submission
+
+Developers need to submit their work for consideration, along with a nomination from an SSA member.
+
+- A brief description of the importance of the software to data science or statistical practice and discuss the advantages and disadvantages of the new contribution compared to existing implementations. Up to 400 words.
+- An installable software product (e.g. package or web app) with its source code for use by the judging panel. It should be accompanied by enough information to allow the judges to effectively use and evaluate the software (including its design considerations). 
+- Supporting letters from at least three users, indicating how they use the software and benefits it has provided for their work. 
+
+## Eligibility
+
+We acknowledge our diverse developer community and especially encourage submissions from under-represented individuals and groups, and new software developers from academia, industry or government.
+
+- Open to individual or a team developers based in Australia, who are relatively new to software development.
+- Software must be distributed with an open source license, as described at https://opensource.org/licenses, actively developed and maintained. It should be noted also, that this means that users would not need to buy a license for any software in order to run the the submitted code.
+- Software needs to have been developed primarily in Australia.
+- The submission member(s) do not need to be an SSA members, but it does need to be accompanied by a nomination from an SSA member. SSA members can nominate more than one candidate.
+- There is no specific programming language required. 
+
+
+## Criteria
+
+- Contribution makes a clear impact for the practice of data science or statistics.
+- Software tackles an important problem, and has a clear purpose.
+- Ease of installation and use.
+- Code is well-structured, and clearly documented in the code.
+- Documentation should also be publicly available, for example, via a dedicated web site containing instructions and example usage.
+- Details clarifying how to cite or otherwise acknowledge the software must be available.
+- Software supports and adheres to principles of reproducibility and interoperability. That is, analyses performed can be readily shared and reproduced by others, and software systems.
+- The work must be:
+    - funded or supported by Australian Funders or Institutions, or
+    - conducted by researchers residing in Australia, or affiliated with an Australian Institution while they wrote the software
+- First release of the software is within the past three years.
+- Individual or (50% of) team is relatively new to software development, that is, this is the first or second statistical software product developed. 
+
+## Judges & Assessors
+
+The award will be managed by the SSA SCV committee, who will recruit a judging panel in any year. 
+
+
+## Forms
+
+<ul class="fa-ul">
+  <li><span class="fa-li"><i class="fas fa-file-code"></i></span>[Application form]()</li>
+  <li><span class="fa-li"><i class="fas fa-gavel"></i></span>[Assessor form](assessor-form.pdf)</li>
+</ul>
+
+
+# <i class="fas fa-calendar-alt"></i> Important Dates
+
+```{r date, echo = FALSE}
+tribble(~Date, ~What,
+        "Apr 16, 2022", "Opening of submissions",
+        "Fri May 14 2022", "Close of submissions",
+        "Jun 2022", "Announcement of the award winners") %>% 
+  knitr::kable()
+```
+
+
+
+# <i class="fas fa-trophy"></i> Prize
+
+First prize will be $4000, with a runner-up prize of $1000. If the judges deem appropriate there may be equal first or runners-up, resulting in a division of the prize money. 
+
+# <i class="fas fa-user"></i> Bill Venables
+
+<img src="https://www.r-project.org/conferences/useR-2018/img/testimonials/bill.jpg" style="border: 3px solid black;width:120px;float:left;margin-right: 10px;margin-bottom:10px;"> Bill Venables pioneered the use of the S and consequently R languages in Australia. His book "Modern Applied Statistics with S" co-authored with Brian Ripley was the primary manner that many analysts learned their trade, across the globe. It is now in its fourth edition. For many people, Bill’s tutorials on data analysis with S and R was the first entry point to working with data. Throughout his many years in academia and with CSIRO, Bill has contributed to the analysis of data from many fields but primarily in ecology, environment, and climate change.
+
+

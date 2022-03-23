@@ -1,0 +1,20 @@
+---
+title: "About"
+description: ""
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+The goal of this award is to encourage new open source software development from the Australian community with a view to support efforts to develop and share data science and statistics methodology. 
+
+
+# <i class="fas fa-user"></i> Bill Venables
+
+<img src="https://www.r-project.org/conferences/useR-2018/img/testimonials/bill.jpg" style="border: 3px solid black;width:120px;float:left;margin-right: 10px;margin-bottom:10px;"> Bill Venables pioneered the use of the S and consequently R languages in Australia. His book "Modern Applied Statistics with S" co-authored with Brian Ripley was the primary manner that many analysts learned their trade, across the globe. It is now in its fourth edition. For many people, Bill’s tutorials on data analysis with S and R was the first entry point to working with data. Throughout his many years in academia and with CSIRO, Bill has contributed to the analysis of data from many fields but primarily in ecology, environment, and climate change.
+
+
+# <i class="fas fa-envelope"></i> Contact
+
+If you have any enquiries about this award, please get in touch by emailing scv@statsoc.org.au. 

@@ -1,0 +1,20 @@
+---
+title: "Statistical Software Showcase"
+description: |
+  This page shows the list tutorials of some submissions to the Venables Award. 
+site: distill::distill_website
+listing: tutorials
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+# Learn more about creating websites with Distill at:
+# https://rstudio.github.io/distill/website.html
+
+```
+
+<br>
+
+This page shows the list tutorials of some submissions to the Venables Award. 
+

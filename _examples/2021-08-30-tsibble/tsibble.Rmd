@@ -1,0 +1,44 @@
+---
+title: "Tidy temporal data frames and pipelines"
+description: |
+  An overview of tsibble's data structure and software design philosophy.
+author:
+  - name: Earo Wang
+    url: https://earo.me
+    affiliation: The University of Auckland
+    orcid_id: 0000-0001-6448-5260
+date: August 30, 2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+*Professor [Di Cook](http://dicook.org) is my PhD supervisor at Monash University, who is committed to open-source statistical software. Under her supervision, I have developed the [**tsibble**](http://tsibble.tidyverts.org/) package to facilitate temporal data analysis in a streamlined manner. This package received the 2019 John Chambers Statistical Software Award from the American Statistical Association.*
+
+## Introduction
+
+Mining temporal data for information is often inhibited by a multitude of formats: irregular or multiple time intervals, point event that needs aggregating, multiple observational units or repeated measurements on multiple individuals, heterogeneous data types. Time series models, in particular, the software supporting time series forecasting makes strict assumptions on the data to be provided, typically a matrix of numeric data with implicit time indices. Going from raw data to model-ready data is painful. This work presents a cohesive and conceptual framework for organizing and manipulating temporal data, which in turn flows into visualization and forecasting routines. Tidy data principles are extended to temporal data: (1) mapping the semantics of a dataset into its physical layout, (2) including an explicitly declared index variable representing time, (3) incorporating a "key" comprised of single or multiple variables to uniquely identify units over time. This tidy data representation most naturally supports thinking of operations on the data as building blocks, forming part of a "data pipeline" in time-based context. A sound data pipeline facilitates a fluent and fluid workflow for analyzing temporal data. The infrastructure of tidy temporal data has been implemented in the R package **tsibble**.
+
+## Data structure
+
+The tsibble package provides a new data class of `tbl_ts` or *tsibble* to represent temporal data, structured in a layout as ["tidy data"](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html). A tsibble consists of a time index, key and other measured variables in a data-centric format, which is built on top of the [*tibble*](https://tibble.tidyverse.org). This consequently gains the support for multiple column-wise atomic types and list-columns that can host a variety of objects. To coerce to a tsibble with `as_tsibble()`, one needs to declare the index and "key" as identifying variables. A valid tsibble requires distinct rows identified by the index and "key". It is possible and recommended to check for identical entries of key and index before analysis using `duplicates()`. Duplicates signal a data quality issue, which would likely affect subsequent analyses and hence decision making. Users are encouraged to gaze at data early and reason the process of data cleaning. When the data meets the tsibble standard, it flows neatly into comprehensive exploration and forecasting. 
+
+## Software structure and design
+
+The tidy data abstraction lays a pipeline infrastructure for data analysis modules of transformation, visualization and modelling. Each module communicates between each other, requiring tidy input, producing tidy output, chaining a series of operations together to accomplish the analytic tasks. The package concentrates on data architecture and manipulation tools to flatten the lumpy path from temporal data to an object that can be directly modelled in the tsibble framework, as well as transformed for visualization.
+
+Some general-purpose [tidyverse](https://www.tidyverse.org/packages/) verbs have been adapted for a tsibble in time domain, for example `filter()` picks observations, `select()` picks variables, and `left_join()` joins two tables. Several new tsibble-specific verbs have been developed for handling temporal transformation: (1) turn implicit missing values into explicit missing values with `fill_gaps()`; (2) collapse by time index to less granular interval with `index_by()`; (3) provides a shorthand for filtering time with `filter_index()`. The principle that underpins these verbs is **a tsibble in and a tsibble out**, and the first argument is always the data. Therefore one can compose a pipeline through the pipe operator `%>%` to write more graceful and expressive code. 
+
+Attention has been paid to error handling. If a tsibble cannot be maintained in the output of a pipeline module, for example the index is dropped by aggregation, an error informs users of the problem and suggests alternatives. This avoids negatively surprising users and reminds them of time context.
+
+Lastly, the tsibble infrastructure is extensible for new index types and new data subclasses, because it leverages S3 methods and classes in R. It provides a concrete foundation for a broad domain of downstream analytic tasks. 
+
+A collection of packages including data sets, time series statistical methods, and forecasting, known as [tidyverts](http://tidyverts.org), has been heavily developed surrounding the tsibble data structure. This ecosystem helps to build tidy time series workflow in a succinct, transparent and human-readable manner.
+
+## Online tutorials
+
+The pkgdown site (http://tsibble.tidyverts.org) is the best place to get started with tsibble:
+
+* Vignette on [Introduction to tsibble](https://tsibble.tidyverts.org/articles/intro-tsibble.html), describing the philosophy underlying tsibble's data structure
+* Vignette on [Handle implicit missingness with tsibble](https://tsibble.tidyverts.org/articles/implicit-na.html), demonstrating how to handle time gaps
+* [Reference page](https://tsibble.tidyverts.org/reference/index.html) to get a glimpse of current tsibble functionality
