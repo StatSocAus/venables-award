@@ -1,0 +1,10 @@
+d-title {
+  display: none;
+}
+
+
+.box {
+  border-left: 10px solid rgb(43, 171, 226);
+  padding: 7px;
+  margin-bottom: 10px;
+}

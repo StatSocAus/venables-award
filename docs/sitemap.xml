@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
+  <url>
+    <loc>https://statsocaus.github.io/venables-award/about.html</loc>
+    <lastmod>2022-03-24T07:55:39+11:00</lastmod>
+  </url>
+  <url>
+    <loc>https://statsocaus.github.io/venables-award/examples.html</loc>
+    <lastmod>2022-03-23T16:58:23+11:00</lastmod>
+  </url>
+  <url>
+    <loc>https://statsocaus.github.io/venables-award/</loc>
+    <lastmod>2022-03-24T08:11:16+11:00</lastmod>
+  </url>
+  <url>
+    <loc>https://statsocaus.github.io/venables-award/showcase.html</loc>
+    <lastmod>2022-03-24T07:58:08+11:00</lastmod>
+  </url>
+  <url>
+    <loc>https://statsocaus.github.io/venables-award/examples/2021-08-30-tsibble/</loc>
+    <lastmod>2022-03-23T16:58:23+11:00</lastmod>
+  </url>
+  <url>
+    <loc>https://statsocaus.github.io/venables-award/examples/2021-08-19-making-your-own-cv-with-r-markdown/</loc>
+    <lastmod>2022-03-23T16:58:23+11:00</lastmod>
+  </url>
+</urlset>
