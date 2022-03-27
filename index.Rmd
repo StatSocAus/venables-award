@@ -55,12 +55,11 @@ We acknowledge our diverse developer community and especially encourage submissi
 The award will be managed by the SSA SCV committee, who will recruit a judging panel in any year. 
 
 
-## Forms
+## Submit an application
 
-<ul class="fa-ul">
-  <li><span class="fa-li"><i class="fas fa-file-code"></i></span>[Application form]()</li>
-  <li><span class="fa-li"><i class="fas fa-gavel"></i></span>[Assessor form](assessor-form.pdf)</li>
-</ul>
+To submit, please complete this
+<i class="fas fa-file-code"></i></span>[Application form](https://forms.gle/uCV1dqbcpeMWodj99)
+
 
 
 # <i class="fas fa-calendar-alt"></i> Important Dates
