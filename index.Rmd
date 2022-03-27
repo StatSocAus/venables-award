@@ -55,7 +55,7 @@ We acknowledge our diverse developer community and especially encourage submissi
 The award will be managed by the SSA SCV committee, who will recruit a judging panel in any year. 
 
 
-## Submit an application
+## Submit an Application
 
 To submit, please complete this
 <i class="fas fa-file-code"></i></span>[Application form](https://forms.gle/uCV1dqbcpeMWodj99)
@@ -82,4 +82,6 @@ First prize will be $4000, with a runner-up prize of $1000. If the judges deem a
 
 <img src="https://www.r-project.org/conferences/useR-2018/img/testimonials/bill.jpg" style="border: 3px solid black;width:120px;float:left;margin-right: 10px;margin-bottom:10px;"> Bill Venables pioneered the use of the S and consequently R languages in Australia. His book "Modern Applied Statistics with S" co-authored with Brian Ripley was the primary manner that many analysts learned their trade, across the globe. It is now in its fourth edition. For many people, Bill’s tutorials on data analysis with S and R was the first entry point to working with data. Throughout his many years in academia and with CSIRO, Bill has contributed to the analysis of data from many fields but primarily in ecology, environment, and climate change.
 
+# <i class="fas fa-user"></i> About the Sponsor
 
+The [ARDC](http://ardc.edu.au/) is a federally funded digital research infrastructure facility enabled by [NCRIS](https://www.dese.gov.au/ncris). The [ARDC](http://ardc.edu.au/) Research Software program is pursuing a vision of [recognition of research software as a first-class output of research](https://ardc.edu.au/collaborations/strategic-activities/a-research-software-agenda-for-australia/). The sponsorship of this award is in aid of recognising the valuable contribution made to research when new ideas, methods and models are captured in this uniquely actionable form of knowledge representation.
