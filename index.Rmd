@@ -14,7 +14,7 @@ library(tidyverse)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-The goal of this award is to encourage new open source software development from the Australian community with a view to support efforts to develop and share data science and statistics methodology. 
+The goal of this award is to encourage new open source software development from the Australian community with a view to support efforts to develop and share data science and statistics methodology. Here's [Bill Venables talking about his experiences, and why this award is important](https://t.co/NFSvRYrMh8).
 
 # <i class="fas fa-bullhorn"></i> Call for Submission
 
