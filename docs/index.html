@@ -50,16 +50,17 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  { color: #00769e; background-color: #f1f3f5; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span { color: #00769e; } /* Normal */
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { } /* Attribute */
+code span.at { color: #657422; } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007ba5; } /* ControlFlow */
+code span.cf { color: #00769e; } /* ControlFlow */
 code span.ch { color: #20794d; } /* Char */
 code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #5e5e5e; } /* Comment */
@@ -73,9 +74,9 @@ code span.fl { color: #ad0000; } /* Float */
 code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #007ba5; } /* Keyword */
+code span.kw { color: #00769e; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #007ba5; } /* Other */
+code span.ot { color: #00769e; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
 code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
@@ -1030,10 +1031,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     margin-top: 1.5em;
   }
 
-  .figure img {
-    width: 100%;
-  }
-
   .figure .caption {
     color: rgba(0, 0, 0, 0.6);
     font-size: 12px;
@@ -1863,6 +1860,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
+        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
+          var fn = $(this).children()[0]
+          $(this).html(fn.shadowRoot.querySelector("sup"))
+          $(this).id = fn.id
+          fn.remove()
+        }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
           return "<p>" + $('#ref-' + ref).html() + "</p>";
@@ -1877,6 +1880,31 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
           placement: 'bottom-start'
         });
       });
+
+      // fix footnotes in tables (#411)
+      // replacing broken distill.pub feature
+      $('table d-footnote').each(function() {
+        // we replace internal showAtNode methode which is triggered when hovering a footnote
+        this.hoverBox.showAtNode = function(node) {
+          // ported from https://github.com/distillpub/template/pull/105/files
+          calcOffset = function(elem) {
+              let x = elem.offsetLeft;
+              let y = elem.offsetTop;
+              // Traverse upwards until an `absolute` element is found or `elem`
+              // becomes null.
+              while (elem = elem.offsetParent && elem.style.position != 'absolute') {
+                  x += elem.offsetLeft;
+                  y += elem.offsetTop;
+              }
+
+              return { left: x, top: y };
+          }
+          // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop
+          const bbox = node.getBoundingClientRect();
+          const offset = calcOffset(node);
+          this.show([offset.left + bbox.width, offset.top + bbox.height]);
+        }
+      })
 
       // clear polling timer
       clearInterval(tid);
@@ -1976,6 +2004,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // mark non-body figures created by knitr chunks as 100% width
     $('.layout-chunk').each(function(i, val) {
       var figures = $(this).find('img, .html-widget');
+      // ignore leaflet img layers (#106)
+      figures = figures.filter(':not(img[class*="leaflet"])')
       if ($(this).attr('data-layout') !== "l-body") {
         figures.css('width', '100%');
       } else {
@@ -1998,7 +2028,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // get rid of index.html references in header
     if (window.location.protocol !== "file:") {
       $('.distill-site-header a[href]').each(function(i,val) {
-        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+        $(this).attr('href', $(this).attr('href').replace(/^index[.]html/, "./"));
       });
     }
 
@@ -2384,7 +2414,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     color: var(--hover-color, white);
   }</style>
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2416,7 +2446,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <img src="img/SSA_Monogram_White.png" alt="Logo"/>
 </a>
 <a href="index.html" class="title">Venables Award for New Developers of Open Source Software for Data Analytics sponsored by the ARDC</a>
-<a href="https://github.com/StatSocAus/dicook-award">
+<a href="https://github.com/StatSocAus/venables-award">
 <i class="fab fa-github" aria-hidden="true"></i>
 </a>
 <input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
@@ -2444,71 +2474,136 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h1>Venables Award for New Developers of Open Source Software for Data Analytics</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>Venables Award for New Developers of Open Source Software for Data Analytics sponsored by the ARDC</p></p>
+<p><p>Venables Award for New Developers of Open Source Software for Data
+Analytics sponsored by the ARDC</p></p>
 </div>
 
 
 <div class="d-article">
-<p>The goal of this award is to encourage new open source software development from the Australian community with a view to support efforts to develop and share data science and statistics methodology. Here’s <a href="https://t.co/NFSvRYrMh8">Bill Venables talking about his experiences, and why this award is important</a>.</p>
-<h1 id="winners-announced"><i class="fas fa-trophy"></i> Winners Announced!</h1>
-<p>Congratulations to all of the ten submissions! The team of international and national judges had a very difficult time determining a winner. The final decision was one winner and two equal runners-up.</p>
-<p>In August 2022, the winners will present their software in a public talk. Watch the <a href="https://www.statsoc.org.au/Events-listing">SSA events web site</a> for the schedule.</p>
-<p>Entries for the 2023 award will open in early March 2023. Start planning your submission now!</p>
+<p>The goal of this award is to encourage new open source software
+development from the Australian community with a view to support efforts
+to develop and share data science and statistics methodology. Here’s <a
+href="https://t.co/NFSvRYrMh8">Bill Venables talking about his
+experiences, and why this award is important</a>.</p>
+<h1 id="winners-announced"><i class="fas fa-trophy"></i> Winners
+Announced!</h1>
+<p>Congratulations to all of the ten submissions! The team of
+international and national judges had a very difficult time determining
+a winner. The final decision was one winner and two equal
+runners-up.</p>
+<p>The winners will present their software in a public talk, on Thu Sep
+8, 1-2pm. Details are at the <a
+href="https://www.statsoc.org.au/Events-listing">SSA events web
+site</a>, and you can directly register <a
+href="https://www.eventbrite.com.au/e/ssa-venables-award-winners-2022-seminar-tickets-407730612237">here</a>.</p>
+<p>Entries for the 2023 award will open in early March 2023. Start
+planning your submission now!</p>
 <h2 id="winner">Winner</h2>
 <ul>
 <li>Vizumap package and VizumApp Shiny app</li>
 <li>Sam Nelson, Lydia Lucchesi, Petra Kuhnert</li>
 </ul>
-<p>The package provides functionality for visualising uncertainty in spatial data. There are four approaches: bivariate maps, map pixelation, glyph rotation and exceedance probability maps. These are original and innovative ideas solving a complex problem. The package is available at <a href="https://github.com/lydialucchesi/Vizumap" class="uri">https://github.com/lydialucchesi/Vizumap</a> and documented in the Journal of Open Source Software at <a href="https://joss.theoj.org/papers/10.21105/joss.02409" class="uri">https://joss.theoj.org/papers/10.21105/joss.02409</a>. Users can access the shiny app at <a href="https://shiny.csiro.au/VizumApp/" class="uri">https://shiny.csiro.au/VizumApp/</a>.</p>
+<p>The package provides functionality for visualising uncertainty in
+spatial data. There are four approaches: bivariate maps, map pixelation,
+glyph rotation and exceedance probability maps. These are original and
+innovative ideas solving a complex problem. The package is available at
+<a href="https://github.com/lydialucchesi/Vizumap"
+class="uri">https://github.com/lydialucchesi/Vizumap</a> and documented
+in the Journal of Open Source Software at <a
+href="https://joss.theoj.org/papers/10.21105/joss.02409"
+class="uri">https://joss.theoj.org/papers/10.21105/joss.02409</a>. Users
+can access the shiny app at <a href="https://shiny.csiro.au/VizumApp/"
+class="uri">https://shiny.csiro.au/VizumApp/</a>.</p>
 <h2 id="runners-up">Runners-up</h2>
 <ul>
 <li>Matt Cowgill</li>
 <li>readabs R package</li>
 </ul>
-<p>This package helps to download, import, and tidy data from the Australian Bureau of Statistics within R. It provides a valuable resource for the Australian analytics community. More details on the package can be found at <a href="https://mattcowgill.github.io/readabs/" class="uri">https://mattcowgill.github.io/readabs/</a>.</p>
+<p>This package helps to download, import, and tidy data from the
+Australian Bureau of Statistics within R. It provides a valuable
+resource for the Australian analytics community. More details on the
+package can be found at <a href="https://mattcowgill.github.io/readabs/"
+class="uri">https://mattcowgill.github.io/readabs/</a>.</p>
 <ul>
 <li>Martin Westgate, Dax Kellie, Matilda Stevenson, Peggy Newman</li>
 <li>galah R package</li>
 </ul>
-<p>This package provides an interface to the data hosted by the Atlas of Living Australia (ALA) and other living atlases, enabling users to locate and download species occurrence records (observations, specimens, eDNA records, etc.), taxonomic information, or associated media such as images or sounds, and to restrict their queries to particular taxa or locations. It provides a valuable service especially to the ecological community in Australia.</p>
-<h1 id="call-for-submission"><i class="fas fa-bullhorn"></i> Call for Submission</h1>
-<p>Developers need to submit their work for consideration, along with a nomination from an SSA member.</p>
+<p>This package provides an interface to the data hosted by the Atlas of
+Living Australia (ALA) and other living atlases, enabling users to
+locate and download species occurrence records (observations, specimens,
+eDNA records, etc.), taxonomic information, or associated media such as
+images or sounds, and to restrict their queries to particular taxa or
+locations. It provides a valuable service especially to the ecological
+community in Australia.</p>
+<h1 id="call-for-submission"><i class="fas fa-bullhorn"></i> Call for
+Submission</h1>
+<p>Developers need to submit their work for consideration, along with a
+nomination from an SSA member.</p>
 <ul>
-<li>A brief description of the importance of the software to data science or statistical practice and discuss the advantages and disadvantages of the new contribution compared to existing implementations. Up to 400 words.</li>
-<li>An installable software product (e.g. package or web app) with its source code for use by the judging panel. It should be accompanied by enough information to allow the judges to effectively use and evaluate the software (including its design considerations).</li>
-<li>Supporting letters from at least three users, indicating how they use the software and benefits it has provided for their work.</li>
+<li>A brief description of the importance of the software to data
+science or statistical practice and discuss the advantages and
+disadvantages of the new contribution compared to existing
+implementations. Up to 400 words.</li>
+<li>An installable software product (e.g. package or web app) with its
+source code for use by the judging panel. It should be accompanied by
+enough information to allow the judges to effectively use and evaluate
+the software (including its design considerations).</li>
+<li>Supporting letters from at least three users, indicating how they
+use the software and benefits it has provided for their work.</li>
 </ul>
 <h2 id="eligibility">Eligibility</h2>
-<p>We acknowledge our diverse developer community and especially encourage submissions from under-represented individuals and groups, and new software developers from academia, industry or government.</p>
+<p>We acknowledge our diverse developer community and especially
+encourage submissions from under-represented individuals and groups, and
+new software developers from academia, industry or government.</p>
 <ul>
-<li>Open to individual or a team developers based in Australia, who are relatively new to software development.</li>
-<li>Software must be distributed with an open source license, as described at <a href="https://opensource.org/licenses" class="uri">https://opensource.org/licenses</a>, actively developed and maintained. It should be noted also, that this means that users would not need to buy a license for any software in order to run the the submitted code.</li>
+<li>Open to individual or a team developers based in Australia, who are
+relatively new to software development.</li>
+<li>Software must be distributed with an open source license, as
+described at <a href="https://opensource.org/licenses"
+class="uri">https://opensource.org/licenses</a>, actively developed and
+maintained. It should be noted also, that this means that users would
+not need to buy a license for any software in order to run the the
+submitted code.</li>
 <li>Software needs to have been developed primarily in Australia.</li>
-<li>The submission member(s) do not need to be an SSA members, but it does need to be accompanied by a nomination from an SSA member. SSA members can nominate more than one candidate.</li>
+<li>The submission member(s) do not need to be an SSA members, but it
+does need to be accompanied by a nomination from an SSA member. SSA
+members can nominate more than one candidate.</li>
 <li>There is no specific programming language required.</li>
 </ul>
 <h2 id="criteria">Criteria</h2>
 <ul>
-<li>Contribution makes a clear impact for the practice of data science or statistics.</li>
+<li>Contribution makes a clear impact for the practice of data science
+or statistics.</li>
 <li>Software tackles an important problem, and has a clear purpose.</li>
 <li>Ease of installation and use.</li>
 <li>Code is well-structured, and clearly documented in the code.</li>
-<li>Documentation should also be publicly available, for example, via a dedicated web site containing instructions and example usage.</li>
-<li>Details clarifying how to cite or otherwise acknowledge the software must be available.</li>
-<li>Software supports and adheres to principles of reproducibility and interoperability. That is, analyses performed can be readily shared and reproduced by others, and software systems.</li>
+<li>Documentation should also be publicly available, for example, via a
+dedicated web site containing instructions and example usage.</li>
+<li>Details clarifying how to cite or otherwise acknowledge the software
+must be available.</li>
+<li>Software supports and adheres to principles of reproducibility and
+interoperability. That is, analyses performed can be readily shared and
+reproduced by others, and software systems.</li>
 <li>The work must be:
 <ul>
 <li>funded or supported by Australian Funders or Institutions, or</li>
-<li>conducted by researchers residing in Australia, or affiliated with an Australian Institution while they wrote the software</li>
+<li>conducted by researchers residing in Australia, or affiliated with
+an Australian Institution while they wrote the software</li>
 </ul></li>
 <li>First release of the software is within the past three years.</li>
-<li>Individual or (50% of) team is relatively new to software development, that is, this is the first or second statistical software product developed.</li>
+<li>Individual or (50% of) team is relatively new to software
+development, that is, this is the first or second statistical software
+product developed.</li>
 </ul>
 <h2 id="judges-assessors">Judges &amp; Assessors</h2>
-<p>The award will be managed by the SSA SCV committee, who will recruit a judging panel in any year.</p>
+<p>The award will be managed by the SSA SCV committee, who will recruit
+a judging panel in any year.</p>
 <h2 id="submit-an-application">Submit an Application</h2>
-<p>To submit, please complete this <i class="fas fa-file-code"></i></span><a href="https://forms.gle/uCV1dqbcpeMWodj99">Application form</a></p>
-<h1 id="important-dates"><i class="fas fa-calendar-alt"></i> Important Dates</h1>
+<p>To submit, please complete this
+<i class="fas fa-file-code"></i></span><a
+href="https://forms.gle/uCV1dqbcpeMWodj99">Application form</a></p>
+<h1 id="important-dates"><i class="fas fa-calendar-alt"></i> Important
+Dates</h1>
 <div class="layout-chunk" data-layout="l-body">
 <table>
 <thead>
@@ -2534,12 +2629,34 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </table>
 </div>
 <h1 id="prize"><i class="fas fa-trophy"></i> Prize</h1>
-<p>First prize will be $4000, with a runner-up prize of $1000. If the judges deem appropriate there may be equal first or runners-up, resulting in a division of the prize money.</p>
+<p>First prize will be $4000, with a runner-up prize of $1000. If the
+judges deem appropriate there may be equal first or runners-up,
+resulting in a division of the prize money.</p>
 <h1 id="bill-venables"><i class="fas fa-user"></i> Bill Venables</h1>
-<p><img src="https://www.r-project.org/conferences/useR-2018/img/testimonials/bill.jpg" style="border: 3px solid black;width:120px;float:left;margin-right: 10px;margin-bottom:10px;"> Bill Venables pioneered the use of the S and consequently R languages in Australia. His book “Modern Applied Statistics with S” co-authored with Brian Ripley was the primary manner that many analysts learned their trade, across the globe. It is now in its fourth edition. For many people, Bill’s tutorials on data analysis with S and R was the first entry point to working with data. Throughout his many years in academia and with CSIRO, Bill has contributed to the analysis of data from many fields but primarily in ecology, environment, and climate change.</p>
-<h1 id="about-the-sponsor"><i class="fas fa-user"></i> About the Sponsor</h1>
-<p>The <a href="http://ardc.edu.au/">ARDC</a> is a federally funded digital research infrastructure facility enabled by <a href="https://www.dese.gov.au/ncris">NCRIS</a>. The <a href="http://ardc.edu.au/">ARDC</a> Research Software program is pursuing a vision of <a href="https://ardc.edu.au/collaborations/strategic-activities/a-research-software-agenda-for-australia/">recognition of research software as a first-class output of research</a>. The sponsorship of this award is in aid of recognising the valuable contribution made to research when new ideas, methods and models are captured in this uniquely actionable form of knowledge representation.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p><img src="https://www.r-project.org/conferences/useR-2018/img/testimonials/bill.jpg" style="border: 3px solid black;width:120px;float:left;margin-right: 10px;margin-bottom:10px;">
+Bill Venables pioneered the use of the S and consequently R languages in
+Australia. His book “Modern Applied Statistics with S” co-authored with
+Brian Ripley was the primary manner that many analysts learned their
+trade, across the globe. It is now in its fourth edition. For many
+people, Bill’s tutorials on data analysis with S and R was the first
+entry point to working with data. Throughout his many years in academia
+and with CSIRO, Bill has contributed to the analysis of data from many
+fields but primarily in ecology, environment, and climate change.</p>
+<h1 id="about-the-sponsor"><i class="fas fa-user"></i> About the
+Sponsor</h1>
+<p>The <a href="http://ardc.edu.au/">ARDC</a> is a federally funded
+digital research infrastructure facility enabled by <a
+href="https://www.dese.gov.au/ncris">NCRIS</a>. The <a
+href="http://ardc.edu.au/">ARDC</a> Research Software program is
+pursuing a vision of <a
+href="https://ardc.edu.au/collaborations/strategic-activities/a-research-software-agenda-for-australia/">recognition
+of research software as a first-class output of research</a>. The
+sponsorship of this award is in aid of recognising the valuable
+contribution made to research when new ideas, methods and models are
+captured in this uniquely actionable form of knowledge
+representation.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2558,7 +2675,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
 <div class="distill-site-nav distill-site-footer">
-<p>© Copyright 2022 <a href="https://www.statsoc.org.au">Statistical Society of Australia</a></p>
+<p>© Copyright 2022 <a href="https://www.statsoc.org.au">Statistical
+Society of Australia</a></p>
 </div>
 <!--/radix_placeholder_navigation_after_body-->
 
