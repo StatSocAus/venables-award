@@ -20,7 +20,7 @@ The goal of this award is to encourage new open source software development from
 
 Congratulations to all of the ten submissions! The team of international and national judges had a very difficult time determining a winner. The final decision was one winner and two equal runners-up. 
 
-In August 2022, the winners will present their software in a public talk. Watch the [SSA events web site](https://www.statsoc.org.au/Events-listing) for the schedule.
+The winners will present their software in a public talk, on Thu Sep 8, 1-2pm. Details are at the [SSA events web site](https://www.statsoc.org.au/Events-listing), and you can directly register [here]( https://www.eventbrite.com.au/e/ssa-venables-award-winners-2022-seminar-tickets-407730612237).
 
 Entries for the 2023 award will open in early March 2023. Start planning your submission now!
 
