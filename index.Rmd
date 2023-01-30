@@ -16,32 +16,6 @@ knitr::opts_chunk$set(echo = FALSE)
 
 The goal of this award is to encourage new open source software development from the Australian community with a view to support efforts to develop and share data science and statistics methodology. Here's [Bill Venables talking about his experiences, and why this award is important](https://t.co/NFSvRYrMh8).
 
-# <i class="fas fa-trophy"></i> Winners Announced!
-
-Congratulations to all of the ten submissions! The team of international and national judges had a very difficult time determining a winner. The final decision was one winner and two equal runners-up. 
-
-The winners will present their software in a public talk, on Thu Sep 8, 1-2pm. Details are at the [SSA events web site](https://www.statsoc.org.au/Events-listing), and you can directly register [here]( https://www.eventbrite.com.au/e/ssa-venables-award-winners-2022-seminar-tickets-407730612237).
-
-Entries for the 2023 award will open in early March 2023. Start planning your submission now!
-
-## Winner
-
-- Vizumap package and VizumApp Shiny app
-- Sam Nelson, Lydia Lucchesi, Petra Kuhnert 
-
-The package provides functionality for visualising uncertainty in spatial data. There are four approaches: bivariate maps, map pixelation, glyph rotation and exceedance probability maps. These are original and innovative ideas solving a complex problem. The package is available at https://github.com/lydialucchesi/Vizumap and documented in the Journal of Open Source Software at https://joss.theoj.org/papers/10.21105/joss.02409. Users can access the shiny app at https://shiny.csiro.au/VizumApp/.
-
-## Runners-up
-
-- Matt Cowgill
-- readabs R package
-
-This package helps to download, import, and tidy data from the Australian Bureau of Statistics within R.  It provides a valuable resource for the Australian analytics community. More details on the package can be found at https://mattcowgill.github.io/readabs/.
-
-- Martin Westgate, Dax Kellie, Matilda Stevenson, Peggy Newman
-- galah R package
-
-This package provides an interface to the data hosted by the Atlas of Living Australia (ALA) and other living atlases, enabling users to locate and download species occurrence records (observations, specimens, eDNA records, etc.), taxonomic information, or associated media such as images or sounds, and to restrict their queries to particular taxa or locations. It provides a valuable service especially to the ecological community in Australia.
 
 # <i class="fas fa-bullhorn"></i> Call for Submission
 
@@ -49,7 +23,9 @@ Developers need to submit their work for consideration, along with a nomination 
 
 - A brief description of the importance of the software to data science or statistical practice and discuss the advantages and disadvantages of the new contribution compared to existing implementations. Up to 400 words.
 - An installable software product (e.g. package or web app) with its source code for use by the judging panel. It should be accompanied by enough information to allow the judges to effectively use and evaluate the software (including its design considerations). 
-- Supporting letters from at least three users, indicating how they use the software and benefits it has provided for their work. 
+- Supporting letters from up to three users, indicating how they use the software and benefits it has provided for their work. 
+
+For inspiration, see the information about the 2022 winners [here](https://statsocaus.github.io/venables-award/competition2022.html). 
 
 ## Eligibility
 
@@ -93,8 +69,8 @@ To submit, please complete this
 
 ```{r date, echo = FALSE}
 tribble(~Date, ~What,
-        "Apr 16, 2022", "Opening of submissions",
-        "~~Sat May 14~~ Fri May 20 2022", "Close of submissions",
+        "Feb 6, 2023", "Opening of submissions",
+        "Fri Apr 22, 2023", "Close of submissions",
         "Jun 2022", "Announcement of the award winners") %>% 
   knitr::kable()
 ```
