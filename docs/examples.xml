@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
   <channel>
-    <title>Venables Award for New Developers of Open Source Software for Data Analytics sponsored by the ARDC</title>
+    <title/>
     <link>https://statsocaus.github.io/venables-award/</link>
     <atom:link href="https://statsocaus.github.io/venables-award/examples.xml" rel="self" type="application/rss+xml"/>
-    <description>Di Cook Award aims to encourage statistical software development by providing formal recognition of these developments showcase the pool of statistical software developers in our local communities and raise awareness of the statistical tools developed by community members.
+    <description>The Venables Award aims to encourage statistical software development by providing formal recognition of these developments showcase the pool of statistical software developers in our local communities and raise awareness of the statistical tools developed by community members.
 </description>
     <generator>Distill</generator>
     <lastBuildDate>Mon, 30 Aug 2021 00:00:00 +0000</lastBuildDate>
