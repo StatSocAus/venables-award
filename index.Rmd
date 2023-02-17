@@ -71,7 +71,7 @@ To submit, please complete this
 tribble(~Date, ~What,
         "Feb 6, 2023", "Opening of submissions",
         "Fri Apr 22, 2023", "Close of submissions",
-        "Jun 2022", "Announcement of the award winners") %>% 
+        "Jun 2023", "Announcement of the award winners") %>% 
   knitr::kable()
 ```
 
