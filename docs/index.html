@@ -458,8 +458,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
 
   <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-  <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
-  <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
+  <link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet"/>
   <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
   <script src="site_libs/autocomplete-0.37.1/autocomplete.min.js"></script>
   <script src="site_libs/fuse-6.4.1/fuse.min.js"></script>
@@ -926,11 +926,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article div.sourceCode pre {
     padding-left: 18px;
     font-size: 14px;
-  }
-
-  /* tweak for Pandoc numbered line within distill */
-  d-article pre.numberSource code > span {
-      left: -2em;
   }
 
   d-article pre {
@@ -1769,9 +1764,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     $('.distill-force-highlighting-css').parent().remove();
 
     // remove empty line numbers inserted by pandoc when using a
-    // custom syntax highlighting theme, except when numbering line
-    // in code chunk
-    $('pre:not(.numberLines) code.sourceCode a:empty').remove();
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
 
     // load distill framework
     load_distill_framework();
@@ -2427,7 +2421,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     color: var(--hover-color, white);
   }</style>
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.22/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2492,6 +2486,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 <div class="d-article">
 <p>The goal of this award is to encourage new open source software development from the Australian community with a view to support efforts to develop and share data science and statistics methodology. Here’s <a href="https://t.co/NFSvRYrMh8">Bill Venables talking about his experiences, and why this award is important</a>.</p>
+<h1 id="winners"><i class="fas fa-trophy"></i> 2023 Winners</h1>
+<p>Congratulations to all applicants! The final scores were very close!</p>
+<p>In August 2023, the winners will present their software in a public talk. Watch the <a href="https://www.statsoc.org.au/Events-listing">SSA events web site</a> for the schedule.</p>
+<h2 id="winner">Winner</h2>
+<ul>
+<li>FRK: Fixed Rank Kriging</li>
+<li>Matthew Sainsbury-Dale, Andrew Zammit-Mangion</li>
+</ul>
+<p><a href="https://andrewzm.github.io/FRK/">FRK</a> is a framework for spatial/spatiotemporal modelling and prediction in which a set of basis functions is used to model the underlying (latent) process of interest. The fixed-rank basis-function representation facilitates the modelling of big data, and the method naturally allows for non-stationary, anisotropic covariance functions. Discretisation of the spatial domain into so-called basic areal units (BAUs) facilitates the integration of observations with varying support (i.e., both point-referenced and areal supports, potentially simultaneously), and prediction over arbitrary user-specified regions. ‘FRK’ also supports inference over various manifolds, including the 2D plane and 3D sphere, and it provides helper functions to model, fit, predict, and plot with relative ease. Version 2.0.0 and above also supports the modelling of non-Gaussian data (e.g., Poisson, binomial, negative-binomial, gamma, and inverse-Gaussian) by employing a generalised linear mixed model (GLMM) framework. <a href="https://www.jstatsoft.org/article/view/v098i04">Zammit-Mangion and Cressie</a> describe ‘FRK’ in a Gaussian setting, and detail its use of basis functions and BAUs, while <a href="https://arxiv.org/abs/2110.02507">Sainsbury-Dale et al.</a> describe ‘FRK’ in a non-Gaussian setting; two vignettes are available that summarise these papers and provide additional examples.</p>
+<h2 id="runner-up">Runner-up</h2>
+<ul>
+<li>predictNMB</li>
+<li>Rex Parsons, Robin Blythe, Adrian Barnett, Susannna Cramb, Steven McPhail</li>
+</ul>
+<p><a href="https://docs.ropensci.org/predictNMB/index.html">predictNMB</a> is a tool to evaluate (hypothetical) clinical prediction models based on their estimated Net Monetary Benefit (NMB). It may be used by prediction model developers who intend to find out how performant their model needs to be clinically useful or by those in health services deciding whether or not to implement an existing model.</p>
+<h2 id="honorable-mentions">Honorable Mentions</h2>
+<ul>
+<li><a href="https://github.com/KatieBuc/gnnad">gnnad</a> by Katie Buchhorn, Lukasz Mentel</li>
+<li><a href="https://cbdrh.shinyapps.io/daggle/">daggle</a> by Mark Hanly</li>
+</ul>
 <h1 id="call-for-submission"><i class="fas fa-bullhorn"></i> Call for Submission</h1>
 <p>Developers need to submit their work for consideration, along with a nomination from an SSA member.</p>
 <ul>
