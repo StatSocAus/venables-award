@@ -1,0 +1,33 @@
+---
+title: "2023 winners"
+description: ""
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# <i class="fas fa-trophy"></i> 2023 Winners
+
+Congratulations to all applicants! The final scores were very close!
+
+In August 2023, the winners will present their software in a public talk. Watch the [SSA events web site](https://www.statsoc.org.au/Events-listing) for the schedule.
+
+## Winner
+
+- FRK: Fixed Rank Kriging
+- Matthew Sainsbury-Dale, Andrew Zammit-Mangion
+
+[FRK](https://andrewzm.github.io/FRK/) is a framework for spatial/spatiotemporal modelling and prediction in which a set of basis functions is used to model the underlying (latent) process of interest. The fixed-rank basis-function representation facilitates the modelling of big data, and the method naturally allows for non-stationary, anisotropic covariance functions. Discretisation of the spatial domain into so-called basic areal units (BAUs) facilitates the integration of observations with varying support (i.e., both point-referenced and areal supports, potentially simultaneously), and prediction over arbitrary user-specified regions. 'FRK' also supports inference over various manifolds, including the 2D plane and 3D sphere, and it provides helper functions to model, fit, predict, and plot with relative ease. Version 2.0.0 and above also supports the modelling of non-Gaussian data (e.g., Poisson, binomial, negative-binomial, gamma, and inverse-Gaussian) by employing a generalised linear mixed model (GLMM) framework. [Zammit-Mangion and Cressie](https://www.jstatsoft.org/article/view/v098i04) describe 'FRK' in a Gaussian setting, and detail its use of basis functions and BAUs, while [Sainsbury-Dale et al.](https://arxiv.org/abs/2110.02507) describe 'FRK' in a non-Gaussian setting; two vignettes are available that summarise these papers and provide additional examples.
+
+## Runner-up
+
+- predictNMB
+- Rex Parsons, Robin Blythe, Adrian Barnett, Susannna Cramb, Steven McPhail 
+
+[predictNMB](https://docs.ropensci.org/predictNMB/index.html) is a tool to evaluate (hypothetical) clinical prediction models based on their estimated Net Monetary Benefit (NMB). It may be used by prediction model developers who intend to find out how performant their model needs to be clinically useful or by those in health services deciding whether or not to implement an existing model.
+
+## Honorable Mentions
+
+- [gnnad](https://github.com/KatieBuc/gnnad) by Katie Buchhorn, Lukasz Mentel
+- [daggle](https://cbdrh.shinyapps.io/daggle/) by Mark Hanly 
