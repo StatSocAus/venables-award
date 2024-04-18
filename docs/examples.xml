@@ -7,14 +7,14 @@
     <description>The Venables Award aims to encourage statistical software development by providing formal recognition of these developments showcase the pool of statistical software developers in our local communities and raise awareness of the statistical tools developed by community members.
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>2021-08-30</lastBuildDate>
+    <lastBuildDate>Mon, 30 Aug 2021 00:00:00 +0000</lastBuildDate>
     <item>
       <title>Tidy temporal data frames and pipelines</title>
       <dc:creator>Earo Wang</dc:creator>
       <link>https://statsocaus.github.io/venables-award/examples/2021-08-30-tsibble</link>
       <description>An overview of tsibble's data structure and software design philosophy.</description>
       <guid>https://statsocaus.github.io/venables-award/examples/2021-08-30-tsibble</guid>
-      <pubDate>2021-08-30</pubDate>
+      <pubDate>Mon, 30 Aug 2021 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>Making your own CV with R Markdown</title>
@@ -26,7 +26,7 @@
       <link>https://statsocaus.github.io/venables-award/examples/2021-08-19-making-your-own-cv-with-r-markdown</link>
       <description>A brief introduction to the vitae package and tutorial for producing your own data driven CV.</description>
       <guid>https://statsocaus.github.io/venables-award/examples/2021-08-19-making-your-own-cv-with-r-markdown</guid>
-      <pubDate>2021-08-19</pubDate>
+      <pubDate>Thu, 19 Aug 2021 00:00:00 +0000</pubDate>
       <media:content url="https://statsocaus.github.io/venables-award/examples/2021-08-19-making-your-own-cv-with-r-markdown/preview.png" medium="image" type="image/png" width="640" height="320"/>
     </item>
   </channel>
