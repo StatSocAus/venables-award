@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 Congratulations to all applicants! The final scores were very close!
 
-In August 2023, the winners will present their software in a public talk. Watch the [SSA events web site](https://www.statsoc.org.au/Events-listing) for the schedule.
+See the interview with [winners](https://ardc.edu.au/article/shaping-research-software-an-interview-with-matthew-sainsbury-dale-and-andrew-zammit-mangion/) and [runners-up](https://ardc.edu.au/article/shaping-research-software-an-interview-with-the-predictnmb-team/).
 
 ## Winner
 

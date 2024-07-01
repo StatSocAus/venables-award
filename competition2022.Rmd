@@ -11,9 +11,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 Congratulations to all of the ten submissions! The team of international and national judges had a very difficult time determining a winner. The final decision was one winner and two equal runners-up. 
 
-The winners will present their software in a public talk, on Thu Sep 8, 1-2pm. Details are at the [SSA events web site](https://www.statsoc.org.au/Events-listing), and you can directly register [here]( https://www.eventbrite.com.au/e/ssa-venables-award-winners-2022-seminar-tickets-407730612237).
-
-Entries for the 2023 award will open in early March 2023. Start planning your submission now!
+See the [interview with winners](https://ardc.edu.au/article/shaping-research-software-an-interview-with-lydia-lucchesi-and-sam-nelson/).
 
 ## Winner
 
