@@ -14,7 +14,7 @@ library(tidyverse)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-The goal of this award is to encourage new open source software development from the Australian community with a view to support efforts to develop and share data science and statistics methodology. It is particularly for software development work from early to mid-career, or even later career researchers, if it is one of their first projects.  Here's [Bill Venables talking about his experiences, and why this award is important](https://t.co/NFSvRYrMh8).
+The goal of this award is to encourage new open source software development from the Australian community with a view to support efforts to develop and share data science and statistics methodology. It is particularly for software development work from early to mid-career researchers or developers. A later career researcher application would be considered, if this was a first software project.  Here's [Bill Venables talking about his experiences, and why this award is important](https://t.co/NFSvRYrMh8).
 
 
 # <i class="fas fa-bullhorn"></i> Call for Submission
@@ -29,7 +29,7 @@ For inspiration, see the information about the [2022 winners](https://statsocaus
 
 ## Eligibility
 
-We acknowledge our diverse developer community and especially encourage submissions from under-represented individuals and groups, and new software developers from academia, industry or government.
+We acknowledge our diverse developer community and especially encourage submissions from under-represented individuals and groups, from academia, industry or government.
 
 - Open to individual or a team developers based in Australia, who are relatively new to software development.
 - Software must be distributed with an open source license, as described at https://opensource.org/licenses, actively developed and maintained. It should be noted also, that this means that users would not need to buy a license for any software in order to run the the submitted code.
@@ -68,9 +68,9 @@ To submit, please complete this
 
 ```{r date, echo = FALSE}
 tribble(~Date, ~What,
-        "Feb 5, 2024", "Opening of submissions",
-        "Fri Apr 27, 2024", "Close of submissions",
-        "Jun/Jul 2024", "Announcement of the award winners") %>% 
+        "Jul 1, 2024", "Opening of submissions",
+        "Fri Nov 1, 2024", "Close of submissions",
+        "Dec 1 2024", "Announcement of the award winners") %>% 
   knitr::kable()
 ```
 
