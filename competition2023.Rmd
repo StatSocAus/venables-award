@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 Congratulations to all applicants! The final scores were very close!
 
-See the interview with [winners](https://ardc.edu.au/article/shaping-research-software-an-interview-with-matthew-sainsbury-dale-and-andrew-zammit-mangion/) and [runners-up](https://ardc.edu.au/article/shaping-research-software-an-interview-with-the-predictnmb-team/).
+See the ARDC Shaping Research Software interview with [winners](https://ardc.edu.au/article/shaping-research-software-an-interview-with-matthew-sainsbury-dale-and-andrew-zammit-mangion/) and [runners-up](https://ardc.edu.au/article/shaping-research-software-an-interview-with-the-predictnmb-team/).
 
 ## Winner
 

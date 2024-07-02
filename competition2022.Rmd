@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 Congratulations to all of the ten submissions! The team of international and national judges had a very difficult time determining a winner. The final decision was one winner and two equal runners-up. 
 
-See the [interview with winners](https://ardc.edu.au/article/shaping-research-software-an-interview-with-lydia-lucchesi-and-sam-nelson/).
+See the [ARDC Shaping Research Software interview with winners](https://ardc.edu.au/article/shaping-research-software-an-interview-with-lydia-lucchesi-and-sam-nelson/).
 
 ## Winner
 
